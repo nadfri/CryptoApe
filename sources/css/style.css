@@ -5,6 +5,7 @@
 }
 
 :root {
+	--primary: #2f2345;
 	--violet: #c2a9ff;
 }
 
@@ -36,7 +37,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: #2f2345; /* color of the scroll thumb */
+	background-color: var(--primary); /* color of the scroll thumb */
 	border-radius: 20px; /* roundness of the scroll thumb */
 }
 
@@ -84,7 +85,7 @@ nav ul {
 	justify-content: space-around;
 	align-items: center;
 	border-radius: 10px;
-	background-color: #2f2345;
+	background-color: var(--primary);
 	height: 50px;
 }
 
@@ -205,11 +206,10 @@ section {
 	);
 	background-size: 150%;
 	transition: all 0.5s;
-
 }
 
 .section_1 :nth-child(n):hover {
-	background-position: top;	
+	background-position: top;
 }
 
 /*Section 2*/
@@ -313,6 +313,64 @@ section {
 	animation-duration: 21s;
 }
 
+/*Icon Scroll*/
+.iconScroll {
+	position: fixed;
+	right: 10px;
+	bottom: 10vh;
+	font-size: 2rem;
+	cursor: pointer;
+	color: var(--violet);
+	transition: all 0.5s;
+	border-radius: 50%;
+	background-color: #673ab745;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+}
+
+.iconScroll:hover {
+	transform: scale(1.4);
+}
+
+.iconScroll_top {
+	bottom: 90vh;
+}
+
+.iconScroll.hidden {
+	animation: hidden 0.5s forwards;
+}
+
+.iconScroll.visible {
+	animation: visible 0.5s forwards;
+}
+
+@keyframes hidden {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+@keyframes visible {
+	0% {
+		opacity: 0;
+		visibility: visible;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+/*Animations*/
 @keyframes animate {
 	0% {
 		transform: translateY(0) rotate(0deg);
@@ -324,6 +382,12 @@ section {
 		transform: translateY(-1000px) rotate(720deg);
 		opacity: 0;
 		border-radius: 50%;
+	}
+}
+
+@media (hover: none) {
+	.iconScroll:hover {
+		transform: rotate(-90deg);
 	}
 }
 
