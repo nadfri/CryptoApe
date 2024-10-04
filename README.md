@@ -1,3 +1,3 @@
 # CryptoApe
 Website for CryptoApe
-https://suivi-ramadan.netlify.app/
+https://cryptoape.netlify.app/
